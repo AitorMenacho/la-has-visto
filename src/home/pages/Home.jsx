@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PeliculasApi } from "../../api/PeliculasApi";
 import { Peliculas } from "../components/Peliculas";
+import { Streaming } from "../components/Streaming";
 import "../styles/home.css";
 
 export const Home = () => {
@@ -52,6 +53,9 @@ export const Home = () => {
             />
           </div>
         </div>
+          <div className="streaming">
+            <Streaming />
+          </div>
         <h2 className="subtitulo">Peliculas</h2>
         <div className="contenedor_subtitulo">
           <button className="boton_info" onClick={anteriorPagina}>
