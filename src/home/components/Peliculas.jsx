@@ -1,9 +1,6 @@
-import { PeliculasApi } from "../../api/PeliculasApi";
+import "boxicons"
 
-export const Peliculas = ({ pagina, letra }) => {
-
-    const { data } = PeliculasApi(pagina, letra);
-
+export const Peliculas = ({ data }) => {
   const mostrarMas = () => {
     window.location.href = "/pelicula";
   };
@@ -25,10 +22,22 @@ export const Peliculas = ({ pagina, letra }) => {
               {pelicula.vote_average}
             </p>
           </div>
+          {pelicula.poster_path != null ? (
           <img
-            src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+            src={
+              pelicula.poster_path === null
+                ? ""
+                : `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`
+            }
             alt={pelicula.title}
           />
+          ) : (
+            <div className="sinPortada">
+              <p>{pelicula.title}</p>
+              <box-icon name='camera-off' color='#ffdb58'></box-icon>
+            </div>
+          )}
+
           <button onClick={mostrarMas} className="boton">
             Ver más
           </button>

@@ -14,19 +14,17 @@ export const PeliculasApi = (pag, pelicula) => {
   const [data, setData] = useState([]);
   const [cantidad, setCantidad] = useState(0);
 
-  console.log(data)
-
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setData(data.results);
-        setCantidad(data.total_results);
+        setCantidad(data.total_pages);
       });
   }, [url]);
 
   return {
     data,
-    cantidad
+    cantidad,
   };
 };

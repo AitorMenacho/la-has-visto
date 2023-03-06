@@ -7,7 +7,7 @@ export const Home = () => {
   const [pagina, setPagina] = useState(1);
   const [letra, setLetra] = useState("");
 
-  const { cantidad } = PeliculasApi(pagina, letra);
+  const { cantidad, data } = PeliculasApi(pagina, letra);
 
   const siguientePagina = () => {
     if (pagina === cantidad) {
@@ -28,6 +28,7 @@ export const Home = () => {
   const buscaPelicula = (e) => {
     if (e.target.value === "") {
       setLetra("");
+      setPagina(1);
     } else {
       setLetra(e.target.value);
     }
@@ -61,7 +62,7 @@ export const Home = () => {
           </button>
         </div>
         <div className="contenedor_peliculas">
-          <Peliculas pagina={pagina} letra={letra} />
+          <Peliculas data={data} />
         </div>
         <div className="contenedor_subtitulo">
           <button className="boton_info" onClick={anteriorPagina}>
