@@ -1,0 +1,99 @@
+.introduccion {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.introduccion h1 {
+  font-size: 10rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.introduccion p {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  letter-spacing: 0.5rem;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.contenedor_filtros {
+  background-color: #ffdb58;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 50px;
+}
+
+.contenedor_filtros input {
+  background-color: transparent;
+  border: none;
+  color: #2c2c2c;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.contenedor_filtros input:focus {
+  outline: none;
+}
+
+.contenedor_filtros input::placeholder {
+  color: #2c2c2c;
+}
+
+.subtitulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 10%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contenedor_peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.contenedor_peliculas .pelicula {
+  border: 1px solid;
+  border-radius: 20px;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.contenedor_peliculas .pelicula img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: brightness(100%);
+  transition: filter 0.5s ease-in-out;
+}
+
+.pelicula .titulo {
+  position: absolute;
+  top: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.pelicula:hover img {
+  filter: brightness(20%);
+}
+
+.pelicula:hover .titulo {
+  opacity: 1;
+}
