@@ -1,11 +1,37 @@
+import { useState } from "react";
 import { PeliculasApi } from "../../api/PeliculasApi";
+import { Peliculas } from "../components/Peliculas";
 import "../styles/home.css";
 
 export const Home = () => {
+  const [pagina, setPagina] = useState(1);
+  const [letra, setLetra] = useState("");
 
-  const { data } = PeliculasApi();
+  const { cantidad } = PeliculasApi(pagina, letra);
 
-  
+  const siguientePagina = () => {
+    if (pagina === cantidad) {
+      return;
+    }
+
+    setPagina(pagina + 1);
+  };
+
+  const anteriorPagina = () => {
+    if (pagina === 1) {
+      return;
+    }
+
+    setPagina(pagina - 1);
+  };
+
+  const buscaPelicula = (e) => {
+    if (e.target.value === "") {
+      setLetra("");
+    } else {
+      setLetra(e.target.value);
+    }
+  };
 
   return (
     <>
@@ -21,17 +47,29 @@ export const Home = () => {
               name=""
               id="nombre"
               placeholder="¿Que película quieres encontrar?"
+              onKeyUp={buscaPelicula}
             />
           </div>
         </div>
         <h2 className="subtitulo">Peliculas</h2>
+        <div className="contenedor_subtitulo">
+          <button className="boton_info" onClick={anteriorPagina}>
+            Anterior
+          </button>
+          <button className="boton_info" onClick={siguientePagina}>
+            Siguiente
+          </button>
+        </div>
         <div className="contenedor_peliculas">
-          {data.map((pelicula) => (
-          <div className="pelicula" key={pelicula.id}>
-            <img src={`https://image.tmdb.org/t/p/w185${pelicula.poster_path}`} alt={pelicula.title} />
-            <div className="titulo">Titulo de mi película</div>
-          </div>
-          ))}
+          <Peliculas pagina={pagina} letra={letra} />
+        </div>
+        <div className="contenedor_subtitulo">
+          <button className="boton_info" onClick={anteriorPagina}>
+            Anterior
+          </button>
+          <button className="boton_info" onClick={siguientePagina}>
+            Siguiente
+          </button>
         </div>
       </div>
     </>

@@ -26,7 +26,6 @@
 .contenedor_filtros {
   background-color: #ffdb58;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 50px;
 }
 
@@ -51,7 +50,6 @@
 .subtitulo {
   font-size: 2rem;
   font-weight: 700;
-  margin-top: 10%;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -64,7 +62,6 @@
 }
 
 .contenedor_peliculas .pelicula {
-  border: 1px solid;
   border-radius: 20px;
   width: 13rem;
   display: flex;
@@ -80,20 +77,93 @@
   transition: filter 0.5s ease-in-out;
 }
 
-.pelicula .titulo {
+.boton {
+  background-color: transparent;
+  border: 1px solid #ffdb58;
+  color: #ffdb58;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: #ffdb58;
+  color: #2c2c2c;
+}
+
+.contenedor_subtitulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boton_info {
+  background-color: transparent;
+  border: 1px solid #ffdb58;
+  color: #ffdb58;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.boton_info:hover {
+  background-color: #ffdb58;
+  color: #2c2c2c;
+}
+
+.mala{
+  background-color: red;
+  color: white;
   position: absolute;
-  top: 100%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: -10px;
 }
 
-.pelicula:hover img {
-  filter: brightness(20%);
+.buena{
+  background-color: #ffdb58;
+  position: absolute;
+  z-index: 1;
+  color: #2c2c2c;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: -10px;
 }
 
-.pelicula:hover .titulo {
-  opacity: 1;
+.buenisima{
+  background-color: #2adb2a;
+  position: absolute;
+  z-index: 1;
+  color: #2c2c2c;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: -10px;
 }
