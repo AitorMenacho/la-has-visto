@@ -1,19 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const PeliculaApi = (pelicula) => {
-  pelicula = pelicula.replace(" ", "%20");
-
-  var url = `https://api.themoviedb.org/3/search/movie?api_key=b9ec2cca0d74725e96124ea337e06c73&query=${pelicula}`;
-
+export const PeliculaApi = (id) => {
   const [data, setData] = useState([]);
+  var url = `https://api.themoviedb.org/3/movie/${id}?api_key=b9ec2cca0d74725e96124ea337e06c73`;
 
-  const getData = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setData(data.results);
-  };
-
-  getData();
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, [url]);
 
   return { data };
 };
