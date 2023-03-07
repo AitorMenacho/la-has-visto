@@ -11,7 +11,7 @@ export const Home = () => {
 
   const handleSelectionChange = (newSelected) => {
     setStreaming(newSelected);
-  }
+  };
 
   const { cantidad, data } = PeliculasApi(pagina, letra, streaming);
 
@@ -58,9 +58,9 @@ export const Home = () => {
             />
           </div>
         </div>
-          <div className="streaming">
-            <Streaming onSelectionChange={handleSelectionChange} />
-          </div>
+        <div className="streaming">
+          <Streaming onSelectionChange={handleSelectionChange} />
+        </div>
         <h2 className="subtitulo">Peliculas</h2>
         <div className="contenedor_subtitulo">
           <button className="boton_info" onClick={anteriorPagina}>

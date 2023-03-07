@@ -5,9 +5,9 @@ export const Streaming = ({ onSelectionChange }) => {
   const { data } = StreamingApi();
   const [seleccionado, setSeleccionado] = useState([]);
 
+  var seleccionados = []
+
   const handleClick = (id) => {
-   
-    const newSelected = seleccionado.includes(id)
 
     if (seleccionado.includes(id)) {
       setSeleccionado(seleccionado.filter((item) => item !== id));
@@ -15,9 +15,15 @@ export const Streaming = ({ onSelectionChange }) => {
       setSeleccionado([...seleccionado, id]);
     }
 
-    console.log(newSelected)
+    seleccionados = seleccionado
 
-    onSelectionChange(newSelected);
+    if (seleccionados.includes(id)) {
+      seleccionados = seleccionados.filter((item) => item !== id);
+    } else {
+      seleccionados.push(id);
+    }
+
+    onSelectionChange(seleccionados);
   };
 
   return (
