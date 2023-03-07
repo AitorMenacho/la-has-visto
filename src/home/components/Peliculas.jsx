@@ -1,6 +1,7 @@
 export const Peliculas = ({ data }) => {
-  const mostrarMas = () => {
-    window.location.href = "/pelicula";
+
+  const mostrarMas = ( id ) => {
+    window.location.href = `pelicula/${id}`;
   };
 
   return (
@@ -23,7 +24,7 @@ export const Peliculas = ({ data }) => {
           {pelicula.poster_path != null ? (
             <img
               className="verMas"
-              onClick={mostrarMas}
+              onClick={() => mostrarMas(pelicula.id)}
               src={
                 pelicula.poster_path === null
                   ? ""
