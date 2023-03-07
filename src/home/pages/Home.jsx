@@ -7,8 +7,13 @@ import "../styles/home.css";
 export const Home = () => {
   const [pagina, setPagina] = useState(1);
   const [letra, setLetra] = useState("");
+  const [streaming, setStreaming] = useState([]);
 
-  const { cantidad, data } = PeliculasApi(pagina, letra);
+  const handleSelectionChange = (newSelected) => {
+    setStreaming(newSelected);
+  }
+
+  const { cantidad, data } = PeliculasApi(pagina, letra, streaming);
 
   const siguientePagina = () => {
     if (pagina === cantidad) {
@@ -54,7 +59,7 @@ export const Home = () => {
           </div>
         </div>
           <div className="streaming">
-            <Streaming />
+            <Streaming onSelectionChange={handleSelectionChange} />
           </div>
         <h2 className="subtitulo">Peliculas</h2>
         <div className="contenedor_subtitulo">

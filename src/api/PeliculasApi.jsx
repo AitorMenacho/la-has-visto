@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 
-export const PeliculasApi = (pag, pelicula) => {
+export const PeliculasApi = (pag, pelicula, streaming) => {
   pelicula = pelicula.replace(" ", "%20");
 
-  var url;
+  console.log(streaming)
 
-  if (pelicula === "") {
-    url = `https://api.themoviedb.org/3/discover/movie?page=${pag}&api_key=b9ec2cca0d74725e96124ea337e06c73`;
-  } else {
-    url = `https://api.themoviedb.org/3/search/movie?&api_key=b9ec2cca0d74725e96124ea337e06c73&query=${pelicula}&page=${pag}`;
-  }
+  var url = `https://api.themoviedb.org/3/discover/movie?page=${pag}&api_key=b9ec2cca0d74725e96124ea337e06c73&query=${pelicula}&with_watch_providers=${streaming}&watch_region=ES&language=es-ES&region=ES&`;
 
   const [data, setData] = useState([]);
   const [cantidad, setCantidad] = useState(0);
