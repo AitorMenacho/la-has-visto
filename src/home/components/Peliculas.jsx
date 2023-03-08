@@ -4,6 +4,8 @@ export const Peliculas = ({ data }) => {
     window.location.href = `pelicula/${id}`;
   };
 
+  if( data.length === 0 ) return (<h1>Cargando...</h1>)
+
   return (
     <>
       {data.map((pelicula) => (
