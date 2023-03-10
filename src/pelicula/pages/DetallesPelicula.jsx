@@ -8,8 +8,6 @@ export const DetallesPelicula = () => {
 
   if (data.length === 0) return <h1>Cargando...</h1>;
 
-  console.log(data);
-
   return (
     <>
       <div
@@ -24,6 +22,16 @@ export const DetallesPelicula = () => {
               src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
               alt={data.title}
             />
+          </div>
+          <div className="datos">
+            <h1>{data.title}</h1>
+            <p>{data.overview}</p>
+            <p>
+              <strong>Fecha de estreno:</strong> {data.release_date}
+            </p>
+            <p>
+              <strong>Popularidad:</strong> {data.popularity}
+            </p>
           </div>
         </div>
       </div>

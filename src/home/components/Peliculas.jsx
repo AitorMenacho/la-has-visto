@@ -4,7 +4,7 @@ export const Peliculas = ({ data }) => {
     window.location.href = `pelicula/${id}`;
   };
 
-  if( data.length === 0 ) return (<h1>Cargando...</h1>)
+  if( data.length === 0 ) return (<h1>No existe ninguna película con ese titulo.</h1>)
 
   return (
     <>
