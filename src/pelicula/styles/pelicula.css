@@ -52,60 +52,60 @@
 }
 
 .baja {
-  background-color: red;
-  filter: drop-shadow(0px 0px 10px red);
-  position: absolute;
-  z-index: 1;
-  color: #2c2c2c;
-  padding: 5px;
-  border-radius: 50px;
-  font-size: 1rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background-color: red;
+  border-radius: 50px;
+  color: #2c2c2c;
+  display: flex;
+  filter: drop-shadow(0px 0px 10px red);
+  font-size: 1rem;
   font-weight: bold;
-  margin-top: -1%;
+  height: 50px;
+  justify-content: center;
   margin-left: 4%;
+  margin-top: -1%;
+  padding: 5px;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
 }
 
 .media {
-  background-color: #ff8000;
-  filter: drop-shadow(0px 0px 10px #ff8000);
-  position: absolute;
-  z-index: 1;
-  color: #2c2c2c;
-  padding: 5px;
-  border-radius: 50px;
-  font-size: 1rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background-color: #ff8000;
+  border-radius: 50px;
+  color: #2c2c2c;
+  display: flex;
+  filter: drop-shadow(0px 0px 10px #ff8000);
+  font-size: 1rem;
   font-weight: bold;
-  margin-top: -1%;
+  height: 50px;
+  justify-content: center;
   margin-left: 4%;
+  margin-top: -1%;
+  padding: 5px;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
 }
 
 .alta {
-  background-color: #2adb2a;
-  filter: drop-shadow(0px 0px 10px #2adb2a);
-  position: absolute;
-  z-index: 1;
-  color: #2c2c2c;
-  padding: 5px;
-  border-radius: 50px;
-  font-size: 1rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background-color: #2adb2a;
+  border-radius: 50px;
+  color: #2c2c2c;
+  display: flex;
+  filter: drop-shadow(0px 0px 10px #2adb2a);
+  font-size: 1rem;
   font-weight: bold;
-  margin-top: -1%;
+  height: 50px;
+  justify-content: center;
   margin-left: 4%;
+  margin-top: -1%;
+  padding: 5px;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
 }
 
 .datos {
@@ -122,7 +122,27 @@
   width: 70%;
 }
 
-.actores{
+.generos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.genero {
+  align-items: center;
+  background-color: #cbff8c;
+  border-radius: 20px;
+  color: #2c2c2c;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-weight: 600;
+  justify-content: center;
+  margin-right: 1%;
+  padding: 1%;
+}
+
+.actores {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -131,12 +151,30 @@
   margin-bottom: 10%;
 }
 
-.actores a{
+.actores a {
   text-decoration: none;
-  color: #CBFF8C;
+  color: #cbff8c;
+  position: relative;
 }
 
-.actores-lista{
+.actores a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #cbff8c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease-out;
+}
+
+.actores a:hover::after {
+  transform: scaleX(1);
+}
+
+.actores-lista {
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -145,37 +183,79 @@
   width: 80%;
 }
 
-.actor{
-  width: 150px;
+.actor {
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  margin: 10px;
 }
 
-.actores img{
-  width: 150px;
+.actores img {
+  width: 200px;
   border-radius: 25px;
   object-fit: cover;
   margin: 10%;
 }
 
-.actores-lista::-webkit-scrollbar{
+.actores-lista::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-.actores-lista::-webkit-scrollbar-track{
+.actores-lista::-webkit-scrollbar-track {
   background: #2c2c2c;
   border-radius: 10px;
 }
 
-.actores-lista::-webkit-scrollbar-thumb{
-  background: #CBFF8C;
+.actores-lista::-webkit-scrollbar-thumb {
+  background: #cbff8c;
   border-radius: 10px;
 }
 
-.actores-lista::-webkit-scrollbar-thumb:hover{
-  background: #CBFF8C;
+.actores-lista::-webkit-scrollbar-thumb:hover {
+  background: #cbff8c;
+}
+
+.datosInformativos{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.trailer{
+  text-align: center;
+}
+
+.trailer iframe{
+  border: 1px solid #cbff8c;
+  border-radius: 25px;
+}
+
+.productoras{
+  text-align: center;
+  margin-left: 10%;
+}
+
+.productora{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productor{
+  width: 200px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  border: 1px solid #cbff8c;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  color: #cbff8c;
 }

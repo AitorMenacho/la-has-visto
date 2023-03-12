@@ -1,5 +1,6 @@
 import { PeliculaApi } from "../../api/PeliculaApi";
 import { Actores } from "../components/Actores";
+import { TrailerProductor } from "../components/TrailerProductor";
 import "../styles/pelicula.css";
 
 export const DetallesPelicula = () => {
@@ -43,10 +44,18 @@ export const DetallesPelicula = () => {
             <p>
               <strong>Fecha de estreno:</strong> {data.release_date}
             </p>
+            <div className="generos">
+              {data.genres.map((genero) => (
+                <span className="genero" key={genero.id}>
+                  {genero.name}{" "}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
       <Actores id={id} />
+      <TrailerProductor id={id} productor={ data.production_companies } />
     </>
   );
 };

@@ -3,8 +3,6 @@ import { CreditosApi } from "../../api/CreditosApi";
 export const Actores = ({ id }) => {
   const { data } = CreditosApi(id);
 
-  console.log(data);
-
   return (
     <div className="actores">
       <h2>Reparto</h2>
