@@ -1,4 +1,5 @@
 import { PeliculaApi } from "../../api/PeliculaApi";
+import { Actores } from "../components/Actores";
 import "../styles/pelicula.css";
 
 export const DetallesPelicula = () => {
@@ -18,6 +19,19 @@ export const DetallesPelicula = () => {
       >
         <div className="backdrop">
           <div className="poster">
+            <div className="valoracion">
+              <p
+                className={
+                  data.vote_average < 5
+                    ? "baja"
+                    : data.vote_average >= 5 && data.vote_average <= 7
+                    ? "media"
+                    : "alta"
+                }
+              >
+                {data.vote_average.toFixed(2)}
+              </p>
+            </div>
             <img
               src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
               alt={data.title}
@@ -25,16 +39,14 @@ export const DetallesPelicula = () => {
           </div>
           <div className="datos">
             <h1>{data.title}</h1>
-            <p>{data.overview}</p>
+            <p className="descripcion">{data.overview}</p>
             <p>
               <strong>Fecha de estreno:</strong> {data.release_date}
-            </p>
-            <p>
-              <strong>Popularidad:</strong> {data.popularity}
             </p>
           </div>
         </div>
       </div>
+      <Actores id={id} />
     </>
   );
 };

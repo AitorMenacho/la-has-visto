@@ -20,7 +20,7 @@ export const Peliculas = ({ data }) => {
                   : "buenisima"
               }
             >
-              {pelicula.vote_average}
+              {pelicula.vote_average.toFixed(2)}
             </p>
           </div>
           {pelicula.poster_path != null ? (
